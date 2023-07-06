@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "../images/icon-left-font-monochrome-white.svg";
+import Img from "../images/1.svg";
 import "../styles/logo.css";
 
 const FirstLogo = () => {

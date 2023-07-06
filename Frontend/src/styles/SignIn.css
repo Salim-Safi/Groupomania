@@ -1,87 +1,92 @@
-.content{
-   display: flex;
-    height: 100vh;
+.content {
+  display: flex;
+  height: 100vh;
 }
-.first-content{
-    background-color: #E2A2A2;
-    width: 38%;
+.first-content {
+  background-color: #e2a2a2;
+  width: 38%;
 }
-.second-content{
-    background-color: #FFFF ;
-    width: 62%;
-}
-
-.pbox{
-    display: flex;
-    justify-content: flex-end;
+.second-content {
+  background-color: #ffff;
+  width: 62%;
 }
 
-.hbox{
-    display: flex;
-    margin-top: 30vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.pbox {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.fbox{
-    padding-right: 150px;
+.hbox {
+  display: flex;
+  margin-top: 30vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-input-wrapper{
-    display: flex;
-    flex-direction: column;
+.fbox {
+  padding-right: 12px;
 }
 
-.label-wrapper{
-    font-size: 18px;
-    padding: 10px 0 5px 0;
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
-.input-wrapper{
-    width: 300px;
-    height: 35px;
-    background: #F0EEEE;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    outline: none;
+.label-wrapper {
+  font-size: 18px;
+  padding: 10px 0 5px 0;
 }
 
-
-
-.p{
-    margin-right: 20px;
+.input-wrapper {
+  width: 300px;
+  height: 35px;
+  background: #f0eeee;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  outline: none;
 }
 
-a{
-    color: #709DE1;
+.p {
+  margin-right: 20px;
 }
 
-.h1{
-    font-weight: 700;
-    margin-bottom: 50px;
+a {
+  color: #709de1;
+}
+
+.h1 {
+  padding-left: 26px;
+  font-weight: 700;
+  margin-bottom: 50px;
 }
 .h1::after {
-    content: "";
-    margin-top: 30px;
-    display: block;
-    position: absolute;
-    width: 455px;
-    height: 1px;
-    background: #000;
+  content: "";
+  margin-top: 30px;
+  display: block;
+  position: absolute;
+  width: 355px;
+  height: 1px;
+  background: #000;
 }
 
-.button{
-    font-size: 16px;
-    font-weight: 100;
-    margin-top: 15px;
-    padding-top: 5px;
-    background-color: #4E5166;
-    width: 150px;
-    height: 35px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.button {
+  font-size: 16px;
+  font-weight: 100;
+  margin-top: 15px;
+  padding-top: 5px;
+  background-color: #4e5166;
+  width: 150px;
+  height: 35px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  transition-duration: 0.3s;
+  background-color: #424351;
 }

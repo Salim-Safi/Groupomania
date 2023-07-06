@@ -1,9 +1,9 @@
 import React from "react";
 
-const Buttons = (props) => {
+const Buttons = ({ customClass, text }) => {
   return (
-    <button type="button"  className={props.class}>
-      {props.text}
+    <button type="button" className={customClass}>
+      {text}
     </button>
   );
 };

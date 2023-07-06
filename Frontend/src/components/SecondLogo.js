@@ -1,5 +1,7 @@
 import React from "react";
-import Img from "../images/icon-left-font-monochrome-black.svg";
+import Img from "../images/2.svg";
+import "../styles/secondLogo.css";
+
 const SecondLogo = () => {
   return (
     <div>

@@ -1,12 +1,12 @@
 import React from "react";
 
-const FormInput = (props) => {
+const FormInput = ({ customClass, text, name, type }) => {
   return (
     <div className="form-input-wrapper">
-      <label className="label-wrapper" for={props.name}>
-        {props.text}
+      <label className="label-wrapper" htmlFor={name}>
+        {text}
       </label>
-      <input className="input-wrapper" type={props.type} id={props.name} />
+      <input className={customClass} type={type} id={name} />
     </div>
   );
 };

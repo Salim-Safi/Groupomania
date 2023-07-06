@@ -22,12 +22,21 @@ const SignIn = () => {
         </div>
 
         <div className="hbox">
-          <h1 className="h1">Connectez-vous à Groupomania</h1>
+          <h1 className="h1">Connectez-vous à Sociall</h1>
           <div className="fbox">
             <form action="submit">
-              <FormInput text="Adresse mail" id="mail" type="email" />
-              <FormInput text="Mot de passe" type="password" />
-              <Buttons text="S'identifier" class="button" />
+              <FormInput
+                text="Adresse mail"
+                id="mail"
+                type="email"
+                customClass="input-wrapper"
+              />
+              <FormInput
+                text="Mot de passe"
+                type="password"
+                customClass="input-wrapper"
+              />
+              <Buttons text="S'identifier" customClass="button" />
             </form>
           </div>
         </div>
