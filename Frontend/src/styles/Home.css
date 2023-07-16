@@ -247,10 +247,82 @@ main::-webkit-scrollbar {
   overflow-y: scroll;
 }
 
-
 article {
   grid-area: article;
   margin-right: 20px;
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+  width: 100%;
+  height: 50%;
+}
+
+.article-content-user {
+  background-image: url(../images/foret.jpg);
+  background-size: cover;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 110px;
+}
+
+.article-content-user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  transform: translateY(90px);
+}
+
+.article-content-user img {
+  background-color: antiquewhite;
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+}
+.article-content-follow {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 0 20px;
+  align-items: center;
+}
+
+.article-content-score {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.articlescore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.articlescore p {
+  color: #8c8c8c;
+}
+
+.articlescore span {
+  font-weight: bold;
+}
+
+.separation {
+  margin-top: 10px;
+  align-items: center;
+  width: 100%;
+  height: 1px;
+  background-color: #f0eeee;
+}
+
+.article-content-follow > p {
+  cursor: pointer;
+  margin-top: 40px;
+  color: red;
 }
 
 @media (max-width: 768px) {

@@ -3,7 +3,7 @@ import iconPoubelle from "../images/poubelle.png";
 import iconEdit from "../images/modifier.png";
 import imageBeach from "../images/beach.jpg";
 import PhotoProfil from "../images/sans-visage.png";
-import "../styles/Post.css";
+import "../styles/components/Post.css";
 
 const Post = () => {
   const [showDiv, setShowDiv] = useState(false);
@@ -119,7 +119,7 @@ const Post = () => {
             </div>
 
             <div className="commentaire">
-              <div className="comms">
+              <div className="comms" onClick={handleInputClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="2em"

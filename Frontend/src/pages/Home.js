@@ -107,7 +107,32 @@ const Home = () => {
         <Post />
       </main>
 
-      <article>ARTICLE</article>
+      <article>
+        <div className="article-content">
+          <div className="article-content-user">
+            <div className="article-content-user-info">
+              <img src={PhotoProfil} alt="" />
+              <p>UserName</p>
+            </div>
+          </div>
+
+          <div className="article-content-follow">
+            <div className="article-content-score">
+              <div className="articlescore">
+                <span>10</span>
+                <p>Followers</p>
+              </div>
+
+              <div className="articlescore">
+                <span>2</span>
+                <p>Following</p>
+              </div>
+            </div>
+            <div className="separation"></div>
+            <p>Mon Profile</p>
+          </div>
+        </div>
+      </article>
     </div>
   );
 };
