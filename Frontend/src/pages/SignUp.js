@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import FirstLogo from "../components/FirstLogo";
 import FormInput from "../components/FormInput";
 import Buttons from "../components/Buttons";
+import Img from "../images/1.svg";
 import "../styles/SignUp.css";
 
 const SignUp = () => {
   return (
     <div className="content-Up">
       <div className="first-content-Up">
-        <FirstLogo />
+      <img src={Img} alt="logo-groupomania-blanc" />
       </div>
 
       <div className="second-content-Up">

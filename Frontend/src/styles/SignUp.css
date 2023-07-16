@@ -6,6 +6,12 @@
   background-color: #e2c8ad;
   width: 38%;
 }
+
+.first-content-Up img {
+  width: 170px;
+  margin-left: 20px;
+}
+
 .second-content-Up {
   background-color: #ffff;
   width: 62%;

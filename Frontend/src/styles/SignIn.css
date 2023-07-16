@@ -6,6 +6,12 @@
   background-color: #e2a2a2;
   width: 38%;
 }
+
+.first-content img {
+  width: 170px;
+  margin-left: 20px;
+}
+
 .second-content {
   background-color: #ffff;
   width: 62%;

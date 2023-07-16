@@ -1,24 +1,27 @@
 import React from "react";
 import "../styles/Home.css";
-import SecondLogo from "../components/SecondLogo";
 import PhotoProfil from "../images/sans-visage.png";
-import Input from "../components/Input";
+import iconIMG from "../images/image.png";
+import iconVideo from "../images/video.png";
+
+import logo from "../images/2.svg";
+import Post from "../components/Post";
 
 const Home = () => {
   return (
     <div className="container">
-      <header className="header">
+      <header>
         <div className="header-logo">
-          <SecondLogo />
+          <img src={logo} alt="logo-groupomania" />
         </div>
 
         <div className="header-search">
           <form>
-            <i class="fa-solid fa-magnifying-glass search-btn"></i>
-            <Input
+            <i className="fa-solid fa-magnifying-glass search-btn"></i>
+            <input
               type="text"
-              customPlace="Recherche..."
-              customClass={"header-input"}
+              placeholder="Recherche..."
+              className="header-input"
             />
           </form>
 
@@ -31,8 +34,79 @@ const Home = () => {
         </div>
       </header>
 
-      <aside>ASIDE</aside>
-      <main>MAIN</main>
+      <aside>
+        <div className="aside-content">
+          <h2>Friends</h2>
+
+          <div className="aside-user">
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+
+            <div className="aside-friends">
+              <img src="" alt="" />
+              <p>Username</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <div className="main-form">
+          <form>
+            <div className="main-post">
+              <div>
+                <img src={PhotoProfil} alt="" />
+              </div>
+
+              <textarea placeholder="Quoi de neuf Username?"></textarea>
+            </div>
+
+            <div className="main-file">
+              <button type="button" className="button-4">
+                <img src={iconIMG} alt="img icon" />
+                Image
+              </button>
+
+              <button type="button" className="button-4">
+                <img src={iconVideo} alt="img icon" />
+                Vidéo
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <Post />
+        <Post />
+        <Post />
+      </main>
+
       <article>ARTICLE</article>
     </div>
   );
