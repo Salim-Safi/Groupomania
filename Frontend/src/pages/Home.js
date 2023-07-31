@@ -1,13 +1,36 @@
-import React from "react";
+import { React, useContext } from "react";
+import { Context } from "../context/Context";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
 import PhotoProfil from "../images/sans-visage.png";
 import iconIMG from "../images/image.png";
 import iconVideo from "../images/video.png";
-
 import logo from "../images/2.svg";
 import Post from "../components/Post";
 
 const Home = () => {
+  const { dispatch } = useContext(Context);
+  const navigate = useNavigate();
+  const logout = async () => {
+    try {
+      axios({
+        method: "GET",
+        url: "http://localhost:3001/api/auth/logout",
+      })
+        .then(function (res) {
+          console.log(res);
+          dispatch({ type: "logout", payload: "" });
+          navigate("/signin");
+        })
+        .catch(function (res) {
+          console.log(res);
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="container">
       <header>
@@ -30,7 +53,10 @@ const Home = () => {
             <p>UserName</p>
           </div>
 
-          <i className="fa fa-arrow-right-from-bracket logout-btn"></i>
+          <i
+            onClick={logout}
+            className="fa fa-arrow-right-from-bracket logout-btn"
+          ></i>
         </div>
       </header>
 

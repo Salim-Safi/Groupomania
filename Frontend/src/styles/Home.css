@@ -265,7 +265,7 @@ article {
   background-image: url(../images/foret.jpg);
   background-size: cover;
   border-radius: 10px 10px 0px 0px;
-  margin-bottom: 110px;
+  margin-bottom: 90px;
 }
 
 .article-content-user-info {
@@ -321,7 +321,7 @@ article {
 
 .article-content-follow > p {
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 20px;
   color: red;
 }
 
