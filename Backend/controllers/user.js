@@ -3,7 +3,13 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Post = require("../models/Post");
 const storage = require("../firebase");
-const { ref, uploadBytesResumable, deleteObject } = require("firebase/storage");
+
+const {
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+  deleteObject,
+} = require("firebase/storage");
 const ObjectID = require("mongoose").Types.ObjectId;
 
 exports.createAdmin = (req, res, next) => {
@@ -73,6 +79,7 @@ exports.login = (req, res, next) => {
             res.status(201).json({
               message: "Connexion réussi",
               userId: user._id,
+              role: user.role,
             });
           } else {
             res.status(400).json({ message: "Connexion non réussi" });
@@ -100,6 +107,49 @@ exports.getAllUsers = (req, res, next) => {
     .select("-password")
     .then((users) => res.status(200).json(users))
     .catch((error) => res.status(400).json({ error }));
+};
+
+exports.searchUsers = async (req, res, next) => {
+  try {
+    const query = req.query.query;
+    const champExclu = [
+      "-password",
+      "-email",
+      "-role",
+      "-createdAt",
+      "-followers",
+      "-following",
+      "-likes",
+      "-updatedAt",
+      "-__v",
+      "-_id",
+    ];
+
+    if (query.includes(" ") && query.length > 0) {
+      const splitQuery = query.split(" ");
+      const firstName = splitQuery[0];
+      const lastName = splitQuery[1];
+
+      const searchResults = await User.find({
+        firstName: { $regex: firstName, $options: "i" },
+        lastName: { $regex: lastName, $options: "i" },
+      })
+        .select(champExclu)
+        .exec();
+      res.json(searchResults);
+    } else {
+      const searchResults = await User.find({
+        firstName: { $regex: query, $options: "i" },
+      })
+        .select(champExclu)
+        .exec();
+
+      res.json(searchResults);
+    }
+  } catch (error) {
+    console.error("Erreur lors de la recherche :", error);
+    res.status(500).json({ message: "Erreur lors de la recherche" });
+  }
 };
 
 exports.getOneUser = (req, res, next) => {
@@ -170,20 +220,31 @@ exports.uploadUserProfil = (req, res, next) => {
 
         uploadBytesResumable(storageRef, req.file.buffer, metadata).then(
           (snapshot) => {
-            console.log("file oploaded");
+            console.log("File uploaded");
+            getDownloadURL(storageRef)
+              .then((url) => {
+                User.updateOne(
+                  { _id: req.params.id },
+                  {
+                    picture: url,
+                  }
+                )
+                  .then(() =>
+                    res
+                      .status(200)
+                      .json({ message: "Photo de profil modifiée !" })
+                  )
+                  .catch((error) => res.status(400).json({ error }));
+              })
+              .catch((error) => {
+                console.error(
+                  "Erreur lors de la récupération de l'URL de téléchargement :",
+                  error
+                );
+                res.status(500).json({ error });
+              });
           }
         );
-
-        User.updateOne(
-          { _id: req.params.id },
-          {
-            picture: fileName,
-          }
-        )
-          .then(() =>
-            res.status(200).json({ message: "Photo de profil modifiés !" })
-          )
-          .catch((error) => res.status(400).json({ error }));
       }
     })
     .catch((error) => res.status(500).json({ error }));
@@ -280,6 +341,7 @@ exports.follow = (req, res, next) => {
   if (req.params.id === req.body.idToFollow) {
     return res.status(400).send("Vous ne pouvez pas vous suivre");
   }
+
   User.findOne({ _id: req.params.id })
     .then((user) => {
       User.updateOne(

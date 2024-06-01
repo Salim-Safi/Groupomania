@@ -133,7 +133,6 @@ exports.unlikePost = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
-
 exports.commentPost = (req, res, next) => {
   Post.findOne({ _id: req.params.id })
     .then((post) => {

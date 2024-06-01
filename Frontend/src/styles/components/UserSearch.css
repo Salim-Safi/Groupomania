@@ -1,0 +1,19 @@
+.userSearch {
+  display: flex;
+  align-items: center;
+}
+
+.userSearch img {
+  height: 30px;
+  width: 30px;
+}
+
+.userSearch p {
+    margin:0;
+}
+
+.nameUser {
+    display: flex;
+    gap: 5px;
+    padding-left: 10px;
+}

@@ -11,14 +11,15 @@ router.post("/login", userCtrl.login);
 router.get("/logout", userCtrl.logout);
 
 //user db
-router.get("/", auth, userCtrl.getAllUsers);
-router.get("/:id", auth, userCtrl.getOneUser);
-router.put("/:id", auth, userCtrl.updateUser);
-router.delete("/:id", auth, userCtrl.deleteUser);
-router.patch("/follow/:id", auth, userCtrl.follow);
-router.patch("/unfollow/:id", auth, userCtrl.unfollow);
+router.get("/user", auth, userCtrl.getAllUsers);
+router.get("/user/search", auth, userCtrl.searchUsers);
+router.get("/user/:id", auth, userCtrl.getOneUser);
+router.put("/user/:id", auth, userCtrl.updateUser);
+router.delete("/user/:id", auth, userCtrl.deleteUser);
+router.patch("/user/follow/:id", auth, userCtrl.follow);
+router.patch("/user/unfollow/:id", auth, userCtrl.unfollow);
 
 //Upload
-router.post("/upload/:id", auth, multer, userCtrl.uploadUserProfil);
+router.post("/user/upload/:id", auth, multer, userCtrl.uploadUserProfil);
 
 module.exports = router;
