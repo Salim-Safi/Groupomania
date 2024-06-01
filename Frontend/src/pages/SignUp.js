@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
+
   return (
     <div className="content-Up">
       <div className="first-content-Up">
@@ -59,6 +60,7 @@ const SignUp = () => {
                   ),
               })}
               onSubmit={async (values, { setSubmitting }) => {
+                const formMess = document.querySelector(".formMessage");
                 try {
                   axios({
                     method: "POST",
@@ -66,12 +68,21 @@ const SignUp = () => {
                     data: values,
                   })
                     .then(function (res) {
-                      console.log(res);
+                      formMess.innerHTML = `<p>${res.data.message}</p>`;
+                      formMess.className = "success";
                       setSubmitting(false);
-                      navigate("/signin");
+                      setTimeout(() => {
+                        formMess.innerHTML = "";
+                        navigate("/signin");
+                      }, 2000);
                     })
                     .catch(function (res) {
-                      console.log(res);
+                      formMess.innerHTML =
+                        "<p>Erreur lors de la création de compte</p>";
+                      formMess.className = "error";
+                      setTimeout(() => {
+                        formMess.innerHTML = "";
+                      }, 2000);
                     });
                 } catch (error) {
                   console.error(error);
@@ -156,6 +167,8 @@ const SignUp = () => {
                   >
                     Créé un compte
                   </button>
+
+                  <div className="formMessage"></div>
                 </Form>
               )}
             </Formik>

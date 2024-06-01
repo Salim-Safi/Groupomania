@@ -111,3 +111,15 @@ a {
   transition-duration: 0.3s;
   background-color: #424351;
 }
+
+.success {
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+}

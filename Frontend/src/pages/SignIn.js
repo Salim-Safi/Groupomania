@@ -36,14 +36,12 @@ const SignIn = () => {
                   .email("Format d'email invalide")
                   .required("Un email est nécéssaire"),
 
-                password: Yup.string()
-                  .required("Un mot de passe est nécéssaire")
-                  .min(
-                    8,
-                    "Votre mot de passe doit comporter au moins 8 caractères"
-                  ),
+                password: Yup.string().required(
+                  "Un mot de passe est nécéssaire"
+                ),
               })}
               onSubmit={async (values, { setSubmitting }) => {
+                const formMess = document.querySelector(".formMessage");
                 try {
                   axios({
                     method: "POST",
@@ -52,11 +50,18 @@ const SignIn = () => {
                     withCredentials: true,
                   })
                     .then(function (res) {
-                      dispatch({ type: "setUser", payload: res.data.userId });
+                      console.log(res);
+                      dispatch({ type: "setUserId", payload: res.data.userId });
+                      dispatch({ type: "setRole", payload: res.data.role });
                       navigate("/");
                     })
                     .catch(function (res) {
-                      console.log(res);
+                      formMess.innerHTML =
+                        "<p>Pair login/mot de passe incorrect</p>";
+                      formMess.className = "error";
+                      setTimeout(() => {
+                        formMess.innerHTML = "";
+                      }, 2000);
                     });
                 } catch (error) {
                   console.error(error);
@@ -102,6 +107,8 @@ const SignIn = () => {
                   >
                     S'identifier
                   </button>
+
+                  <div className="formMessage"></div>
                 </Form>
               )}
             </Formik>

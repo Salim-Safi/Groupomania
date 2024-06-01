@@ -62,7 +62,6 @@ header form {
 }
 
 .user-info img {
-  background-color: antiquewhite;
   margin-left: 0;
   margin-top: 5px;
   object-fit: cover;
@@ -178,7 +177,6 @@ main::-webkit-scrollbar {
 
 .main-post img {
   border-radius: 10px;
-  background-color: antiquewhite;
   width: 40px;
   height: 40px;
 }
@@ -278,7 +276,6 @@ article {
 }
 
 .article-content-user img {
-  background-color: antiquewhite;
   width: 90px;
   height: 90px;
   border-radius: 10px;
@@ -325,6 +322,19 @@ article {
   color: red;
 }
 
+.userSearch-display {
+  border-radius: 5px;
+  z-index: 10;
+  border: 1px solid #8c8c8c;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  width: 240px;
+  position: absolute;
+  margin: 0;
+  background-color: white;
+}
 @media (max-width: 768px) {
 }
 

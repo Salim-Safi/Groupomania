@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const Protected = ({ children }) => {
   const { context } = useContext(Context);
-  if (context.user === "") {
+  if (context.userId === "") {
     return <Navigate to="/signin" />;
   }
   return children;

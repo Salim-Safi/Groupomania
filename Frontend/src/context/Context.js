@@ -1,14 +1,20 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-  user: "",
+  userId: "",
+  role: "",
+  user: null,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "setUser":
-      return { ...state, user: action.payload };
+    case "setUserId":
+      return { ...state, userId: action.payload };
+    case "setRole":
+      return { ...state, role: action.payload };
     case "logout":
+      return { ...state, userId: action.payload };
+    case "setUser":
       return { ...state, user: action.payload };
     default:
       throw Error("unknow action in context reducer");
